@@ -77,6 +77,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>TradeEvent__e.TradeId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Trade__c.BuyAmount__c</field>
         <readable>true</readable>
