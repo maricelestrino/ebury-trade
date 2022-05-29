@@ -35,7 +35,7 @@
                                         <lightning-icon icon-name="utility:right" size="small"></lightning-icon>
                                     </lightning-layout-item>
                                     <lightning-layout-item size="8" padding="around-small">
-                                        <lightning-formatted-number readyonly="true" value={rate}></lightning-formatted-number>
+                                        <lightning-formatted-number readyonly="true" value={rate} maximum-fraction-digits="4"></lightning-formatted-number>
                                     </lightning-layout-item>
                                     <lightning-layout-item size="2" padding="around-small">
                                         <lightning-icon icon-name="utility:right" size="small"></lightning-icon>
@@ -60,13 +60,13 @@
                             <lightning-layout-item size="4" padding="around-small">
                                 <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Sell
                                     Amount</label>
-                                <lightning-input type="number" value={sellAmount} onchange={handleSellAmountChange} variant="label-hidden"></lightning-input>
+                                <lightning-input type="number" step="0.01" value={sellAmount} onchange={handleSellAmountChange} variant="label-hidden"></lightning-input>
                             </lightning-layout-item>
                             <!-- BUY AMOUNT -->
                             <lightning-layout-item size="4" padding="around-small">
                                 <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Buy
                                     Amount</label>
-                                    <lightning-input type="number" value={buyAmount} variant="label-hidden" disabled></lightning-input>
+                                    <lightning-input type="number" step="0.01" value={buyAmount} variant="label-hidden" disabled></lightning-input>
                             </lightning-layout-item>
                         </lightning-layout>
                     </div>

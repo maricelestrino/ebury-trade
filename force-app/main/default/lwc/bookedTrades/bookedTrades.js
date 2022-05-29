@@ -10,18 +10,38 @@ export default class BookedTrades extends LightningElement {
     visibleTrades;
 
     columns = [{ label: 'Sell CCY', fieldName: 'SellCurrency__c', type: 'text' },
-               { label: 'Sell Amount', fieldName: 'SellAmount__c', type: 'text' },
+               { label: 'Sell Amount', fieldName: 'SellAmount__c', type: 'number', 
+                 cellAttributes:{ 
+                    alignment: 'left' 
+                 },               
+                 typeAttributes:{
+                     minimumFractionDigits: '2',
+                     maximumFractionDigits: '2'
+                 }},
                { label: 'Buy CCY', fieldName: 'BuyCurrency__c', type: 'text' },
-               { label: 'Buy Amount', fieldName: 'BuyAmount__c', type: 'text' },
-               { label: 'Rate', fieldName: 'Rate__c', type: 'text' },
+               { label: 'Buy Amount', fieldName: 'BuyAmount__c', type: 'number', 
+                  cellAttributes:{ 
+                    alignment: 'left' 
+                  },
+                 typeAttributes:{
+                     minimumFractionDigits: '2',
+                     maximumFractionDigits: '2'
+                 }},
+               { label: 'Rate', fieldName: 'Rate__c', type: 'number', 
+                 cellAttributes:{ 
+                     alignment: 'left' 
+                 },
+                 typeAttributes:{
+                     minimumFractionDigits: '4'
+                 }},
                { label: 'Date Booked', fieldName: 'CreatedDate', type: 'date',
-               typeAttributes: {
-                   day: 'numeric',
-                   month: 'numeric',
-                   year: 'numeric',
-                   hour: '2-digit',
-                   minute: '2-digit',
-                   second: '2-digit'
+                 typeAttributes: {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
                } }
                 ];
 

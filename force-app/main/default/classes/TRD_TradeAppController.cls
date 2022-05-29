@@ -9,7 +9,7 @@ public with sharing class TRD_TradeAppController {
         }
     }
 
-    @AuraEnabled //Parece pronto
+    @AuraEnabled
     public static List<String> getCurrencies(){
 
         SObjectType tradeObject = Trade__c.SObjectType;
@@ -20,7 +20,7 @@ public with sharing class TRD_TradeAppController {
         return currencyList;
     }
 
-    @AuraEnabled //Parece Pronto
+    @AuraEnabled
     public static String getRateAndAmount(String amount, String fromCurrency, String toCurrency){
         
         TRD_FixerApiModel returnedConversion = TRD_CalloutFixerApi.getConversion(amount, fromCurrency, toCurrency);
@@ -32,13 +32,13 @@ public with sharing class TRD_TradeAppController {
         return JSON.serialize(tradeToReturn);
     }
 
-    @AuraEnabled //Add Model? 
+    @AuraEnabled
     public static void createTrade(String trade){
 
             TradeInfo tradeToCreate = (TradeInfo)JSON.deserialize(trade, TradeInfo.class);
             List<Trade__c> trades = new List<Trade__c>();
 
-            Trade__c tradeRecord = new Trade__c(); //add a model class to do it
+            Trade__c tradeRecord = new Trade__c();
             tradeRecord.SellCurrency__c = tradeToCreate.sellCurrency;
             tradeRecord.BuyCurrency__c = tradeToCreate.buyCurrency;
             tradeRecord.BuyAmount__c = tradeToCreate.buyAmount;
@@ -48,7 +48,6 @@ public with sharing class TRD_TradeAppController {
             TRD_TradeService.createTrade(tradeRecord);
             trades.add(tradeRecord);
 
-            //Criar o Event de FeedItem 
             TRD_TradeHandler.publishTradeEvent(trades);
     }
 
