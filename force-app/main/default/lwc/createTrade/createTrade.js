@@ -33,7 +33,7 @@ export default class CreateTrade extends LightningElement {
     }
 
     setRate() {
-        getRateAndAmount({ amount: '$sellAmount', fromCurrency: '$sellCurrency', toCurrency: '$buyCurrency' })
+        getRateAndAmount({ amount: this.sellAmount, fromCurrency: this.sellCurrency, toCurrency: this.buyCurrency })
             .then(result => {
                 let trade = JSON.parse(result);
                 this.rate = trade.rate;

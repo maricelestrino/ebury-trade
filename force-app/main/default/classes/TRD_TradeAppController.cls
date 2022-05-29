@@ -22,8 +22,8 @@ public with sharing class TRD_TradeAppController {
 
     @AuraEnabled
     public static String getRateAndAmount(String amount, String fromCurrency, String toCurrency){
-        
-        TRD_FixerApiModel returnedConversion = TRD_CalloutFixerApi.getConversion(amount, fromCurrency, toCurrency);
+
+        TRD_FixerApiModel returnedConversion = TRD_CalloutFixerApi.getConversion(toCurrency, fromCurrency, amount);
 
         TradeInfo tradeToReturn = new TradeInfo();
         tradeToReturn.buyAmount = returnedConversion.result;

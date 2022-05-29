@@ -7,10 +7,8 @@ public with sharing class FeedItemHandler {
         List<FeedItem> feedItems = new List<FeedItem>();
         System.debug(feedItemsEvent);
 
-        //Get all users from particular queue
         Set<Id> groupMemberIds = GroupMemberSelector.getAllMemberIdsByQueueName('Trade reviewers');
 
-        //Get custom metadata
         String messageBody = CUSTOM_CHATTER_POST_MTD.Body__c; 
         for(Id userId : groupMemberIds){
             for(TradeEvent__e event : feedItemsEvent){
