@@ -1,0 +1,83 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                <lightning-icon variant="inverse" onclick={closeModal} alternative-text="close"
+                    icon-name="utility:close" size="small"></lightning-icon>
+            </button>            
+            <div class="slds-modal__header slds-card__header-title">
+                <slot name="headercontent">New Trade</slot>
+            </div>
+            <div class="slds-modal__content" id="modal-content-id-1">
+                <slot name="bodycontent">
+                    <div class="slds-var-m-around_medium">
+                        <lightning-layout vertical-align="center" horizontal-align="spread">
+                            <!-- SELL CURRENCY -->
+                            <lightning-layout-item size="4" padding="around-small">
+                                <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Sell Currency</label>
+                                <lightning-combobox class="slds-align_absolute-center" 
+                                                    name="sellCurrency"
+                                                    value={sellCurrency} 
+                                                    options={options} 
+                                                    onchange={handleCurrencyChange} 
+                                                    variant="label-hidden"
+                                                    required>
+                                </lightning-combobox>
+                            </lightning-layout-item>
+                            <!-- RATE -->
+                            <lightning-layout-item size="4" padding="around-small">
+                                <div>
+                                    <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Rate</label>
+                                </div>
+                                <lightning-layout vertical-align="center" horizontal-align="spread">
+                                    <lightning-layout-item size="2" padding="around-small">
+                                        <lightning-icon icon-name="utility:right" size="small"></lightning-icon>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="8" padding="around-small">
+                                        <lightning-formatted-number readyonly="true" value={rate}></lightning-formatted-number>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="2" padding="around-small">
+                                        <lightning-icon icon-name="utility:right" size="small"></lightning-icon>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-layout-item>
+                            <!-- BUY CURRENCY -->
+                            <lightning-layout-item size="4" padding="around-small">
+                                <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Buy Currency</label>
+                                <lightning-combobox name="buyCurrency" 
+                                                    value={buyCurrency} 
+                                                    label="Buy Currency"
+                                                    options={options} 
+                                                    onchange={handleCurrencyChange}
+                                                    variant="label-hidden"
+                                                    required>
+                                </lightning-combobox>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <lightning-layout horizontal-align="spread">
+                            <!-- SELL AMOUNT -->
+                            <lightning-layout-item size="4" padding="around-small">
+                                <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Sell
+                                    Amount</label>
+                                <lightning-input type="number" value={sellAmount} onchange={handleSellAmountChange} variant="label-hidden"></lightning-input>
+                            </lightning-layout-item>
+                            <!-- BUY AMOUNT -->
+                            <lightning-layout-item size="4" padding="around-small">
+                                <label class="slds-form-element__label slds-align_absolute-center slds-form-element_stacked">Buy
+                                    Amount</label>
+                                    <lightning-input type="number" value={buyAmount} variant="label-hidden" disabled></lightning-input>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </slot>
+            </div>
+            <!-- BUTTONS -->
+            <div class="slds-modal__footer slds-modal__footer_directional">
+                <lightning-button variant="brand" label="Create" onclick={saveTrade}></lightning-button>
+                <lightning-button class="slds-float_right" variant="neutral" label="Cancel" onclick={closeModal}></lightning-button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

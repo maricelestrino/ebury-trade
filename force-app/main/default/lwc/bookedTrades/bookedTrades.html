@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Booked Trades">
+        <div slot="actions">
+            <lightning-button variant="brand" label="New Trade" title="New Trade" onclick={showCreateTrade} class="slds-var-m-left_x-small">
+            </lightning-button>
+        </div>
+        <template if:true={showModal}>
+            <c-create-trade onclose={closeCreateTrade} 
+                            onadd={getTradeRecords} 
+                            show-modal={showModal}>
+            </c-create-trade>
+        </template>
+        <template if:true={visibleTrades}>
+            <div class="slds-var-m-around_medium">
+                <lightning-datatable data={visibleTrades} 
+                                columns={columns} 
+                                key-field="id" 
+                                resize-column-disabled 
+                                hide-checkbox-column>
+                </lightning-datatable>
+            </div>
+        </template>
+        <div slot="footer" class="slds-var-m-vertical_medium">
+            <c-pagination records={trades} record-size="20" onupdate={updatePagination}></c-pagination>
+        </div>
+    </lightning-card>
+</template>
