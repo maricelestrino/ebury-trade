@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>BRL</fullName>
+        <default>false</default>
+        <label>BRL</label>
+    </customValue>
+    <customValue>
+        <fullName>EUR</fullName>
+        <default>false</default>
+        <label>EUR</label>
+    </customValue>
+    <customValue>
+        <fullName>GPB</fullName>
+        <default>false</default>
+        <label>GPB</label>
+    </customValue>
+    <customValue>
+        <fullName>USD</fullName>
+        <default>false</default>
+        <label>USD</label>
+    </customValue>
+    <masterLabel>Currency</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

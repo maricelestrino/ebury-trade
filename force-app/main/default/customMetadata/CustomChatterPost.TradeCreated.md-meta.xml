@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>TradeCreated</label>
+    <protected>false</protected>
+    <values>
+        <field>Body__c</field>
+        <value xsi:type="xsd:string">A new trade has been created with the following data: 
+Sell Currency: {0}
+Sell Amount: {1}
+Buy Currency: {2}
+Buy Amount: {3}
+Rate: {4}
+Booked Date: {5}
+Link to trade: {6}</value>
+    </values>
+</CustomMetadata>
