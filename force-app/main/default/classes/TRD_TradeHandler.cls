@@ -10,7 +10,8 @@ public with sharing class TRD_TradeHandler {
                 BuyCurrency__c = trade.BuyCurrency__c,
                 Rate__c = trade.Rate__c,
                 SellAmount__c = trade.SellAmount__c,
-                SellCurrency__c = trade.SellCurrency__c
+                SellCurrency__c = trade.SellCurrency__c,
+                TradeId__c = trade.Id
             );
             tradeEvents.add(tradeEvent);
         }
