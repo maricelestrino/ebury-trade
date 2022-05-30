@@ -1,5 +1,7 @@
 List<User> users = [Select Id from User where Profile.Name = 'System Administrator'];
-for(User user : user){
+Group queue = [Select Id from Group Where name = 'Trade reviewers'];
+List<GroupMember> groupMembers = new List<GroupMember>();
+for(User user : users){
     GroupMember groupMember = new GroupMember();
     groupMember.GroupId = queue.Id;
     groupMember.UserOrGroupId = user.Id;
