@@ -5,7 +5,6 @@ public with sharing class FeedItemHandler {
 
     public static void createFeedItems(List<TradeEvent__e> feedItemsEvent){
         List<FeedItem> feedItems = new List<FeedItem>();
-        System.debug(feedItemsEvent);
 
         Set<Id> groupMemberIds = GroupMemberSelector.getAllMemberIdsByQueueName('Trade reviewers');
 
@@ -27,6 +26,6 @@ public with sharing class FeedItemHandler {
                 feedItems.add(feedItem);
             }
         }
-        insert feedItems; //Add service pra fazer insert
+        insert feedItems;
     }
 }

@@ -2,11 +2,7 @@ public with sharing class TRD_TradeAppController {
 
     @AuraEnabled
     public static List<Trade__c> getAllTrades(){
-        try {
-            return TRD_TradeSelector.getAllOrderedByCreatedDate(); //Treat to not return Id to LWC
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
+        return TRD_TradeSelector.getAllOrderedByCreatedDate(); //Treat to not return Id to LWC
     }
 
     @AuraEnabled
@@ -54,12 +50,17 @@ public with sharing class TRD_TradeAppController {
             TRD_TradeHandler.publishTradeEvent(trades);
     }
 
+    @TestVisible
     private class TradeInfo{
-
+        @TestVisible
         String sellCurrency;
+        @TestVisible
         String buyCurrency;
+        @TestVisible
         Decimal buyAmount;
+        @TestVisible
         Decimal sellAmount;
+        @TestVisible
         Decimal rate;
 
     }
