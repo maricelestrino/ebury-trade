@@ -3,7 +3,7 @@
     <fullName>SellCurrency__c</fullName>
     <externalId>false</externalId>
     <label>Sell Currency</label>
-    <required>false</required>
+    <required>true</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

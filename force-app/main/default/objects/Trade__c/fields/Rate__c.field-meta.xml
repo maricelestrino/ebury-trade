@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <label>Rate</label>
     <precision>18</precision>
-    <required>false</required>
+    <required>true</required>
     <scale>4</scale>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
