@@ -1,4 +1,5 @@
 import { LightningElement, api } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getRateAndAmount from '@salesforce/apex/TRD_TradeAppController.getRateAndAmount';
 import createTrade from '@salesforce/apex/TRD_TradeAppController.createTrade';
 import getCurrencies from '@salesforce/apex/TRD_TradeAppController.getCurrencies';
@@ -54,7 +55,7 @@ export default class CreateTrade extends LightningElement {
     }
 
     checkFields() {
-        if (this.buyCurrency != null && this.sellCurrency != null && this.sellAmount > 0) {
+        if (this.buyCurrency != null && this.sellCurrency != null && this.sellAmount != null) {
             this.setRate();
         }
     }
@@ -71,6 +72,7 @@ export default class CreateTrade extends LightningElement {
     }
 
     saveTrade() {
+
         let trade = {};
         trade.sellCurrency = this.sellCurrency;
         trade.buyCurrency = this.buyCurrency;
@@ -82,14 +84,25 @@ export default class CreateTrade extends LightningElement {
     }
 
     createTradeRecord(tradeJson) {
-        console.log('entrou no createRecord vai chama');
         createTrade({ trade: tradeJson })
             .then(() => {
+                this.showToast('Trade Created','Your new trade has been created','success'); //Create variable to handle it
                 this.dispatchEvent(new CustomEvent('add'));
                 this.closeModal();
             }
             )
-            .catch()//add mensagem de erro
+            .catch(error =>{
+                this.showToast('Error',error.body.message,'error');
+            })
+    }
+
+    showToast(title, message, variant){
+        const event = new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant
+        });
+        this.dispatchEvent(event);
     }
 
     closeModal() {

@@ -45,9 +45,12 @@ public with sharing class TRD_TradeAppController {
             tradeRecord.SellAmount__c = tradeToCreate.sellAmount;
             tradeRecord.Rate__c = tradeToCreate.rate;
             
-            TRD_TradeService.createTrade(tradeRecord);
-            trades.add(tradeRecord);
-
+            try{
+                TRD_TradeService.createTrade(tradeRecord);
+                trades.add(tradeRecord); 
+            }catch(System.DmlException ex){
+                throw new AuraHandledException(ex.getDmlMessage(0));
+            }
             TRD_TradeHandler.publishTradeEvent(trades);
     }
 

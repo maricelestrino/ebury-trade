@@ -11,9 +11,9 @@
         <label>EUR</label>
     </customValue>
     <customValue>
-        <fullName>GPB</fullName>
+        <fullName>GBP</fullName>
         <default>false</default>
-        <label>GPB</label>
+        <label>GBP</label>
     </customValue>
     <customValue>
         <fullName>USD</fullName>
