@@ -2,11 +2,6 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <name>Trade reviewers</name>
-    <queueMembers>
-        <users>
-            <user>mariana.ebury@mariorg.br</user>
-        </users>
-    </queueMembers>
     <queueSobject>
         <sobjectType>Trade__c</sobjectType>
     </queueSobject>
