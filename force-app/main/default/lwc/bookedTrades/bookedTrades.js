@@ -9,6 +9,8 @@ export default class BookedTrades extends LightningElement {
     trades;
     visibleTrades;
 
+    /*Improvement: create a field set on Trade__c Object to dinamically get all fields there
+    so if some user request to add or remove a field, would be simple to do*/
     columns = [{ label: 'Sell CCY', fieldName: 'SellCurrency__c', type: 'text' },
                { label: 'Sell Amount', fieldName: 'SellAmount__c', type: 'number', 
                  cellAttributes:{ 

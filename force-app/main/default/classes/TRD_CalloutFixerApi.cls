@@ -1,6 +1,6 @@
 public with sharing class TRD_CalloutFixerApi{
 
-    private static final String API_KEY = '17hNp8nDMDpX1V9OaiCwFl9arAvUoE9d';
+    private static final String API_KEY = '17hNp8nDMDpX1V9OaiCwFl9arAvUoE9d'; //it should not be hardcoded
     private static final String CONVERT_PATH = 'FixerApi/convert?to={0}&from={1}&amount={2}';
     private static final String GET_METHOD = 'GET';
 

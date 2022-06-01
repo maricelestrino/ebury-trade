@@ -1,3 +1,5 @@
+//all test classes were made in the 'standard' way but 
+//the main idea is to mock/stub all records to improve the tests
 @IsTest
 public with sharing class TRD_CalloutFixerApiTest {
 

@@ -34,7 +34,7 @@ public with sharing class TRD_TradeAppController {
             TradeInfo tradeToCreate = (TradeInfo)JSON.deserialize(trade, TradeInfo.class);
             List<Trade__c> trades = new List<Trade__c>();
 
-            Trade__c tradeRecord = new Trade__c();
+            Trade__c tradeRecord = new Trade__c(); //use some model to create the record
             tradeRecord.SellCurrency__c = tradeToCreate.sellCurrency;
             tradeRecord.BuyCurrency__c = tradeToCreate.buyCurrency;
             tradeRecord.BuyAmount__c = tradeToCreate.buyAmount;
@@ -47,7 +47,7 @@ public with sharing class TRD_TradeAppController {
             }catch(System.DmlException ex){
                 throw new AuraHandledException(ex.getDmlMessage(0));
             }
-            TRD_TradeHandler.publishTradeEvent(trades);
+            TRD_TradeHandler.publishTradeEvent(trades); //event to trigger chatter creation
     }
 
     @TestVisible
